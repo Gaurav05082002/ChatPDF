@@ -19,11 +19,11 @@ cd ChatPDF
 ## Backend Setup
 
 The backend is built using Python. To set it up and run, follow these steps:
-
+navigate to backend folder 
 ### 1. Install Required Dependencies
 Ensure you have Python 3.10 or higher installed. Install the required Python packages by running:
 ```bash
-pip install -r backend/requirements.txt
+pip install -r requirements.txt
 ```
 
 ### 2. Create a `.env` File
@@ -34,16 +34,14 @@ GOOGLE_API_KEY="<your_google_api_key>"
 
 #### How to Get a Google API Key:
 You can obtain a Google API key by following these steps:
-1. Go to the [Google Cloud Console](https://console.cloud.google.com/).
-2. Create a new project or use an existing one.
-3. Navigate to **APIs & Services** > **Credentials**.
-4. Click **Create Credentials** and select **API Key**.
-5. Copy the generated key and paste it into the `.env` file.
+1. Go to the [Google Ai Studio](https://aistudio.google.com/prompts/new_chat?gad_source=1&gclid=Cj0KCQiA4fi7BhC5ARIsAEV1YiZE3IUqYaco1sjh6khoZhz7q-ZcaCsQCuoFRKQMIaSN-0JX9PFG548aAp1cEALw_wcB).
+2. On top left click on get api key button and create api key.
+3. Copy the generated key and paste it into the `.env` file.
 
 ### 3. Start the Backend Server
 Once all dependencies are installed and the `.env` file is set up, you can start the backend server. For Linux, use:
 ```bash
-python backend/app.py
+python3 app.py
 ```
 
 The backend server should now be running.
@@ -88,3 +86,6 @@ This will launch the application in your default web browser. By default, the fr
 ---
 
 If you encounter any issues or have any questions, feel free to reach out. Happy coding!
+Gaurav Patidar
+gaurav05082002@gmail.com
+7689816680
