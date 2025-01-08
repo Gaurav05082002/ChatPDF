@@ -1,6 +1,10 @@
 # ChatPDF
-
 ChatPDF is a web application designed for seamless interaction with PDFs. This project is divided into two parts: the **backend** and the **frontend**, which need to be run in separate terminals.
+### Demo Images 
+![page1](https://github.com/user-attachments/assets/cdbabda1-3928-43e1-a02b-b8d672b9e7b2)
+![page2](https://github.com/user-attachments/assets/8f8fcc16-17fb-4d69-8eb2-99bb7b427c32)
+![page3](https://github.com/user-attachments/assets/d8635d74-5391-48f2-95f7-067efa8b5cac)
+
 
 ## Clone the Repository
 
