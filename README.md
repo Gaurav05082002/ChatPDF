@@ -6,6 +6,10 @@ ChatPDF is a web application designed for seamless interaction with PDFs. This p
 ![page3](https://github.com/user-attachments/assets/d8635d74-5391-48f2-95f7-067efa8b5cac)
 
 
+https://github.com/user-attachments/assets/d7c173a0-0243-4d61-8110-af2b3930ed46
+
+
+
 Uploading screen-capture.mp4…
 
 
