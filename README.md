@@ -6,6 +6,11 @@ ChatPDF is a web application designed for seamless interaction with PDFs. This p
 ![page3](https://github.com/user-attachments/assets/d8635d74-5391-48f2-95f7-067efa8b5cac)
 
 
+Uploading screen-capture.mp4…
+
+
+
+
 ## Clone the Repository
 
 To begin, clone the repository using the following command:
