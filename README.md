@@ -133,6 +133,18 @@ The documents corresponding to the most similar embeddings are retrieved and use
 ### 5. Response Generation
 The retrieved documents and the input question are fed into a conversational AI model to generate an answer.
 
+## Embeddings Model (models/embedding-001)
+- **Purpose**: Converts text into vector representations for semantic understanding.
+- **Functionality**: 
+  - Transforms input text into dense vectors (embeddings).
+  - Enables the system to find contextually similar chunks by measuring similarity between embeddings.
+  
+## Generative AI Model (Gemini-1.5-pro)
+- **Purpose**: Processes the context and question to generate a human-like, detailed answer.
+- **Functionality**: 
+  - Takes the context and user question as input.
+  - Uses advanced generative techniques to create a response that is coherent and contextually appropriate.
+
 
 
 If you encounter any issues or have any questions, feel free to reach out. Happy coding!
