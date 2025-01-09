@@ -116,6 +116,25 @@ Return Results:
 
 - The most relevant documents, images, or data points are retrieved based on similarity scores.
 
+## How Does FAISS Work in This Case?
+
+### 1. Question Embedding
+The input question is converted into an embedding using the **GoogleGenerativeAIEmbeddings** model.
+
+### 2. FAISS Index
+Precomputed embeddings for documents are stored in a **FAISS index** (`faiss_index`).
+
+### 3. Similarity Search
+The FAISS index is queried with the question's embedding to find the most similar document embeddings.
+
+### 4. Context Retrieval
+The documents corresponding to the most similar embeddings are retrieved and used as context for answering the question.
+
+### 5. Response Generation
+The retrieved documents and the input question are fed into a conversational AI model to generate an answer.
+
+
+
 If you encounter any issues or have any questions, feel free to reach out. Happy coding!
 Gaurav Patidar
 gaurav05082002@gmail.com
