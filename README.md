@@ -97,6 +97,24 @@ This will launch the application in your default web browser. By default, the fr
   - Double-check the API key and permissions on the Google Cloud Console.
 
 ---
+## Literature Part
+- FAISS and Embeddings: How Does It Work?:
+ -FAISS works by indexing embeddings for fast similarity search. Here's how:
+
+ -Create Embeddings:
+
+Use a pre-trained or custom model (e.g., OpenAI, BERT, or CLIP) to generate embeddings for your data (like text or images).
+Indexing:
+
+- Embeddings are indexed using FAISS. FAISS organizes them in a way that allows for efficient retrieval.
+Indexing algorithms include exact search (brute force) and approximate nearest-neighbor search (faster for large datasets).
+Search:
+
+- A query (like a user's question) is also converted into an embedding.
+FAISS compares the query embedding with the indexed embeddings to find the most similar entries.
+Return Results:
+
+- The most relevant documents, images, or data points are retrieved based on similarity scores.
 
 If you encounter any issues or have any questions, feel free to reach out. Happy coding!
 Gaurav Patidar
