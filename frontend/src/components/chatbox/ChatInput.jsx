@@ -11,25 +11,43 @@ const ChatInput = ({ onNewMessage }) => {
   const handleSendMessage = async () => {
     if (input.trim()) {
       // Add user message
-      onNewMessage({ sender: "user", text: input });
+      onNewMessage({ sender: "user", text: input, citations: "" });
       setIsLoading(true); // Start loading
+  
       try {
         // Send question to backend
         const response = await axios.post("http://localhost:5000/ask_question", {
           question: input.trim(),
         });
-
-        // Add bot's answer
-        onNewMessage({ sender: "bot", text: response.data.answer });
+  
+        // Extract answer and citations
+        const { answer, citations } = response.data;
+  
+        // Ensure `answer` and `citations` are strings
+        const formattedAnswer = typeof answer === "string" ? answer : JSON.stringify(answer);
+        const formattedCitations = typeof citations === "string" ? citations : JSON.stringify(citations);
+  
+        // Add bot's response
+        onNewMessage({
+          sender: "bot",
+          text: formattedAnswer,
+          citations: formattedCitations,
+        });
       } catch (error) {
-        onNewMessage({ sender: "bot", text: "Error fetching answer." });
+        onNewMessage({
+          sender: "bot",
+          text: "Error fetching answer.",
+          citations: "No citations available",
+        });
       } finally {
         setIsLoading(false); // Stop loading
       }
-
+  
       setInput(""); // Clear input field
     }
   };
+  
+  
 
   return (
     <div className="chat-input">

@@ -31,15 +31,23 @@ def get_pdf_text(pdf_docs):
             if page:
                 text += page.extract_text() or ""
     return text
+#The uploaded PDFs are read using the PdfReader class from a PDF processing library.
+# The function iterates through the pages of each PDF and extracts text using page.extract_text().
+# All the extracted text is concatenated into a single string.
 
 def get_text_chunks(text):
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=10000, chunk_overlap=1000)
     return text_splitter.split_text(text)
+# The raw text is split into smaller chunks using RecursiveCharacterTextSplitter.
+# Parameters like chunk_size (10,000 characters) and chunk_overlap (1,000 characters) ensure that:
+# Description: The chunk_overlap parameter controls how much text from one chunk overlaps with the next. It ensures that consecutive chunks share some content, maintaining context between them.
 
 def get_vector_store(text_chunks):
     embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
     vector_store = FAISS.from_texts(text_chunks, embedding=embeddings)
     vector_store.save_local("faiss_index")
+# Each chunk is converted into an embedding vector using the GoogleGenerativeAIEmbeddings model. These embeddings capture the semantic meaning of the text.
+# The chunks and their embeddings are stored in a FAISS vector store.
 
 def get_conversational_chain():
     prompt_template = """
@@ -53,7 +61,7 @@ def get_conversational_chain():
     model = ChatGoogleGenerativeAI(model="gemini-pro", temperature=0.3)
     prompt = PromptTemplate(template=prompt_template, input_variables=["context", "question"])
     return load_qa_chain(model, chain_type="stuff", prompt=prompt)
-
+# temperature=0.3: In natural language processing (NLP), temperature controls the randomness of the model's output. A lower value (like 0.3) makes the model's responses more deterministic and focused, while a higher value (like 0.7 or 1.0) would make it more creative and varied.
 # Routes
 @app.route('/upload_pdf', methods=['POST'])
 def upload_pdf():
@@ -72,7 +80,8 @@ def upload_pdf():
         return jsonify({"message": "Files processed successfully"}), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
-
+# LLM LangChain:
+# A framework designed to simplify the use of LLMs by combining multiple tools and workflows.
 @app.route('/ask_question', methods=['POST'])
 def ask_question():
     try:
@@ -89,7 +98,10 @@ def ask_question():
 
         embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
         print("Loading FAISS index...")
+        # Initializes the embedding model (embedding-001) using GoogleGenerativeAIEmbeddings. This model likely converts the question into a numerical format (embedding) for similarity comparisons.
         new_db = FAISS.load_local("faiss_index", embeddings, allow_dangerous_deserialization=True)
+        # Loads a FAISS (Facebook AI Similarity Search) index from the local file system (faiss_index).
+        # Serialization converts objects (e.g., embeddings and FAISS indices) into a storable format, such as binary or JSON.
         docs = new_db.similarity_search(question)
 
         if not docs:

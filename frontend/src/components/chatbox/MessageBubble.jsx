@@ -1,18 +1,13 @@
-// MessageBubble.jsx
 import React from "react";
-import Loader from "../loader/Loader"; // Import the Loader component
 import "./Chat.scss";
 
-const MessageBubble = ({ message, isLoading }) => {
+const MessageBubble = ({ message }) => {
   const isSentByUser = message.sender === "user";
 
   return (
     <div className={`message-bubble ${isSentByUser ? "sent" : "received"}`}>
-      {isLoading ? (
-        <Loader /> // Show loader if message is being prepared
-      ) : (
-        <p>{message.text}</p> // Show message when ready
-      )}
+      <p>{message.text}</p>
+      {/* {message.citations && <h3>{message.citations}</h3>} */}
     </div>
   );
 };

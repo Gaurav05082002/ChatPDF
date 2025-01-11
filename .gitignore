@@ -1,0 +1,22 @@
+# General
+*.log
+*.pyc
+*.pyo
+__pycache__/
+*.sqlite3
+.DS_Store
+
+# Backend
+backend/.env
+backend/venv/
+backend/faiss_index/
+
+# Frontend
+frontend/node_modules/
+
+# Environment files
+.env
+
+
+# VSCode settings
+.vscode/

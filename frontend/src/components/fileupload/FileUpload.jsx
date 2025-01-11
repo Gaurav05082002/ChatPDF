@@ -16,12 +16,12 @@ const FileUpload = () => {
       alert("Please upload at least one file.");
       return;
     }
+    console.log("Uploaded files:", pdfFiles);
 
     const formData = new FormData();
     pdfFiles.forEach((file) => {
       formData.append("pdf_files", file);
     });
-
     setIsProcessing(true);
     try {
       const result = await axios.post("http://localhost:5000/upload_pdf", formData, {
